@@ -34,3 +34,5 @@ zig-out/
 *.exe
 *.out
 *.app
+
+.vscode/
