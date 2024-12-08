@@ -17,7 +17,7 @@ fn linker(exe: *std.Build.Step.Compile, files: []const []const u8, b: *std.Build
         const sdl_dep = b.dependency("raylib-zig", .{ // Add libs as needed
             .target = target,
         });
-        exe.linkLibrary(sdl_dep.artifact("rayllib"));
+        exe.linkLibrary(sdl_dep.artifact("raylib"));
 
         // Solution 2 -WIP-
         // This worked in the past?
@@ -86,13 +86,13 @@ pub fn build(b: *std.Build) !void {
     }
 
     // ------ Clean ------
-    const clean_step = b.step("clean", "Clean the directory");
+    // const clean_step = b.step("clean", "Clean the directory");
     // Windows
     // clean_step.dependOn(&b.addRemoveDirTree(b.path("zig-out")).step);
     // clean_step.dependOn(&b.addRemoveDirTree(b.path(".zig-cache")).step);
     // Linux
-    clean_step.dependOn(&b.addRemoveDirTree(b.install_path).step);
-    clean_step.dependOn(&b.addRemoveDirTree(b.pathFromRoot(".zig-cache")).step);
+    // clean_step.dependOn(&b.addRemoveDirTree(b.install_path).step);
+    // clean_step.dependOn(&b.addRemoveDirTree(b.pathFromRoot(".zig-cache")).step);
 }
 
 // TODO: Add ignore word
